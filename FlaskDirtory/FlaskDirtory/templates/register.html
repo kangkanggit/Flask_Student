@@ -37,10 +37,11 @@
                 <br>
               <form class="user" method="post">
                     <div class="form-group ">
-                        <input type="text" class="form-control form-control" id="username" name="username" placeholder="用户名">
+                        <input type="text" class="form-control " id="username" name="username" placeholder="用户名">
                       </div>
+                      <span style="color: red" id="one"></span>
                       <div class="form-group ">
-                        <input type="text" class="form-control form-control" id="password" name="password" placeholder="密码">
+                        <input type="password" class="form-control " id="password" name="password" placeholder="密码">
                       </div>
                     <div class="form-group">
                         <select class="form-control" name="identity">
@@ -49,11 +50,11 @@
                         </select>
                     </div>
                       <br>
-                    <input type="submit" class="btn btn-dark  btn-block" value="注册">
+                    <input class="btn btn-primary  btn-block" id="submit" type="submit"  value="注册">
               </form>
               <br>
               <div class="text-center">
-                <a class="small" href="login.html">已经有账号去登录</a>
+                <a class="small" href="/login/">已经有账号去登录</a>
               </div>
             </div>
           </div>
@@ -72,6 +73,39 @@
 
   <!-- Custom scripts for all pages-->
   <script src="/static/js/sb-admin-2.min.js"></script>
+  <script>
+      $('#username').blur(
+          function () {
+              var username = $('#username').val();
+              var url = '/ajax_register/?username='+username;
+              $.ajax(
+                  {
+                      url:url,
+                      type:'get',
+                      data:'',
+                      success:function (data) {
+                      var content = data.content;
+                      if (content == '用户名可以用'){
+                           $('#one').css('color','green');
+                           $('#one').text(content)
+                      }else {
+                          $('#one').css('color','rea');
+                          $('#one').text(content)
+                      }var s = data.status;
+                      if (s == 'error'){
+                          $('#submit').attr('disabled',true)
+                      }else {
+                          $('#submit').attr('disabled',false)
+                      }
+                         console.log(data.content)
+                      },error:function (error) {
+                          console.log(error)
+                      }
+                  }
+              )
+          }
+      )
+  </script>
 
 </body>
 
