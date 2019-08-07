@@ -90,4 +90,4 @@ class Teacher(BaseNodel):
     course_id = models.Column(models.Integer, models.ForeignKey("course.id"))#外键字段的搭建对应的课程表
 
 # models.drop_all()#删除数据库
-# models.create_all()#创建数据库
+models.create_all()#创建数据库
