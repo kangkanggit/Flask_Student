@@ -3,17 +3,17 @@
 """
 from FlaskDirtory.main import models
 
-session = models.session
+db = models.session
 class BaseNodel(models.Model):
     __abstract__ = True#代表当前类是抽象的，不会被创建
     id = models.Column(models.Integer,primary_key=True,autoincrement=True)
     #保存数据的方法
     def save(self):
-        session.add(self)
-        session.commit()#固定用法
+        db.add(self)
+        db.commit()#固定用法
     def delete_object(self):
-        session.delete(self)
-        session.commit()
+        db.delete(self)
+        db.commit()
 
 #用户中心
 class User(BaseNodel):

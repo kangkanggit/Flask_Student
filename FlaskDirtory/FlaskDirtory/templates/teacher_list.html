@@ -1,0 +1,143 @@
+{% extends 'blank.html' %}
+{% block title %}
+    老师信息页面
+{% endblock %}
+{% block style %}
+    <link href="/static/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+{% endblock %}
+{% block tit %}老师信息表{% endblock %}
+{% block content %}
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+        <div class="modal-dialog" >
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="myModalLabel">老师信息修改表</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+              <form action="/update/" method="post">
+                  {{ teacher_form.csrf_token }}
+                <div>
+                    <input class="form-control" type="text" value="{{ teacher.name }}" name="name" id="name">
+                <br>
+                </div>
+                <div>
+                    <input class="form-control" type="text" value="{{ teacher.age }}" name="age" id="age">
+                    <br>
+                </div>
+                <div>
+                    {{ teacher_form.gender }}
+                    <br>
+                </div>
+                <div>
+                    {{ teacher_form.course }}
+                    <br>
+                </div>
+                <div class="modal-footer">
+                  <input class="btn btn-primary form-control" type="submit"  value="提交">
+                </div>
+              </form>
+              </div>
+        </div>
+  </div>
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>姓名:</th>
+                      <th>年龄:</th>
+                      <th>性别:</th>
+                      <th>学科:</th>
+                      <th>操作</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    {% for foo in teachers %}
+                    <tr>
+                      <th>{{ foo.name }}</th>
+                      <th>{{ foo.age }}</th>
+                      <th>{{ foo.gender }}</th>
+                      <th>{{ foo.to_course_data.label }}</th>
+                      <input type="hidden" class="two" id="two" value="{{ foo.id }}">
+                      <th style="text-align: center">
+                          <a  data-toggle="modal" data-target="#myModal" id="one" class="btn btn-primary"  href="#">调整</a>
+                          &nbsp;&nbsp;
+                         <a class="btn btn-danger" href="/delete_teacher/?teacher_id={{ foo.id }}">开除</a>
+                      </th>
+                    </tr>
+                   {% endfor %}
+                  </tfoot>
+                </table>
+              <div class='row'>
+              <div class="div col-sm-12 col-md-5">
+                  <div class="dataTables_info" id="dataTable_info">
+                      一共查到{{ pages }}数据|共{{ list_sum }}页|当前是第{{ page_num }}页
+                  </div>
+              </div>
+                <div class="col-sm-12 col-md-7">
+                   <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                <ul class="pagination">
+
+                        {% if go_page %}
+                        <li class="paginate_button page-item next">
+                        <a href="?keyword={{ keywords }}&page_num={{ go_page  }}"  class="page-link" >上一页</a>
+                        </li>
+                        {% else %}
+                         <li class="paginate_button page-item next disabled">
+                        <a href=""  class="page-link " >上一页</a>
+                        </li>
+                        {% endif %}
+                    {% for p in page_range %}
+                    <li class="paginate_button page-item active">
+                        <a href="?keyword={{ keywords }}&page_num={{ p }}" class="page-link">{{ p }}</a>
+                    </li>
+                    {% endfor %}
+                    <li class="paginate_button page-item next">
+                        <a href="?keyword={{ keywords }}&page_num={{ next_page }}" class="page-link">下一页</a>
+                    </li>
+                </ul>
+           </div>
+        </div>
+      <div>
+
+      </div>
+    </div>
+              </div>
+            </div>
+          </div>
+{% endblock %}
+{% block script %}
+    <script>
+           $('#one').click(
+               function () {
+                   var ss = $('.two').val();
+                   console.log(ss);
+                   var url = '/update/?id='+ss;
+                   $.ajax(
+                       {
+                           url:url,
+                           type:'get',
+                           data:'',
+                           success:function (data) {
+                               var name = data.name;
+                               var age = data.age;
+                               var gender = data.gender;
+                               var course = data.course;
+                               $('#name').val(name);
+                               $('#age').val(age);
+                               $('#gender').val(gender);
+                               $('#course').val(course);
+                           },error:function (error) {
+                               console.log(error)
+                           }
+                       }
+                   )
+               }
+           )
+
+    </script>
+{% endblock %}
