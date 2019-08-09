@@ -1,0 +1,75 @@
+{% extends 'blank.html' %}
+{% block title %}
+    学生信息页面
+{% endblock %}
+{% block style %}
+    <link href="/static/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+{% endblock %}
+{% block tit %}学生信息表{% endblock %}
+{% block content %}
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>姓名:</th>
+                      <th>年龄:</th>
+                      <th>性别:</th>
+                      <th>操作</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    {% for foo in students %}
+                    <tr>
+                      <th>{{ foo.name }}</th>
+                      <th>{{ foo.age }}</th>
+                      <th>{{ foo.gender }}</th>
+                      <th style="text-align: center">
+                          <a class="btn btn-primary" href="#">调整</a>
+                          &nbsp;&nbsp;
+                         <a class="btn btn-danger" href="#">开除</a>
+                      </th>
+                    </tr>
+                   {% endfor %}
+                  </tfoot>
+                </table>
+              <div class='row'>
+              <div class="div col-sm-12 col-md-5">
+                  <div class="dataTables_info" id="dataTable_info">
+                      一共查到{{ pages }}数据|共{{ list_sum }}页|当前是第{{ page_num }}页
+                  </div>
+              </div>
+                <div class="col-sm-12 col-md-7">
+                   <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                <ul class="pagination">
+
+                        {% if go_page %}
+                        <li class="paginate_button page-item next">
+                        <a href="?keyword={{ keywords }}&page_num={{ go_page  }}"  class="page-link" >上一页</a>
+                        </li>
+                        {% else %}
+                         <li class="paginate_button page-item next disabled">
+                        <a href=""  class="page-link " >上一页</a>
+                        </li>
+                        {% endif %}
+                    {% for p in page_range %}
+                    <li class="paginate_button page-item active">
+                        <a href="?keyword={{ keywords }}&page_num={{ p }}" class="page-link">{{ p }}</a>
+                    </li>
+                    {% endfor %}
+                    <li class="paginate_button page-item next">
+                        <a href="?keyword={{ keywords }}&page_num={{ next_page }}" class="page-link">下一页</a>
+                    </li>
+                </ul>
+           </div>
+        </div>
+      <div>
+
+      </div>
+    </div>
+              </div>
+            </div>
+          </div>
+{% endblock %}
