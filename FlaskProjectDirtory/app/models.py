@@ -24,7 +24,7 @@ class User(BaseNodel):
     username = models.Column(models.String(32))
     password = models.Column(models.String(32))
     identity = models.Column(models.Integer)#0学员，1教师
-    identity_id = models.Column(models.Integer,nullable=True)
+    identity_id = models.Column(models.Integer,nullable=True)#学生老师表状态表
 
 
 class Student(BaseNodel):
@@ -33,9 +33,14 @@ class Student(BaseNodel):
     name = models.Column(models.String(32))
     age = models.Column(models.Integer)
     gender = models.Column(models.Integer)#0男 1女
+    user_id = models.Column(models.Integer,models.ForeignKey('user.id'))#关联用户表
     to_attendance = models.relationship(
         'Attendance',#考勤的方法名
         backref = 'to_student_hh'#反向字段
+    )
+    to_grade = models.relationship(
+        'Grade',  # 隐射
+        backref='to_Grade'  # 反向字段Grade 查询课程的字段
     )
 
 #多对多的关系表
@@ -64,14 +69,17 @@ class Course(BaseNodel):
         # joined  对关联的两个表students和stu_cou进行join查询
         # dynamic 不加载数据
     )
-
+    to_Grades = models.relationship(
+        'Grade',  # 隐射
+        backref='to_course'  # 反向字段teacher 查询课程的字段
+    )
 
 class Grade(BaseNodel):
     #成绩表
     __tablename__ = 'grade'
 
     grade = models.Column(models.Float, default=0)
-    course_id = models.Column(models.Integer, models.ForeignKey("course.id"))
+    course_id = models.Column(models.Integer, models.ForeignKey("course.id"))#课程
     student_id = models.Column(models.Integer, models.ForeignKey("students.id"))#外键关系是学生
 
 
@@ -90,6 +98,7 @@ class Teacher(BaseNodel):
     name = models.Column(models.String(32))
     age = models.Column(models.Integer)
     gender = models.Column(models.Integer)  # 0 男 1女 -1 unknown
+    user_id = models.Column(models.Integer, models.ForeignKey('user.id'))  # 关联用户表
     course_id = models.Column(models.Integer, models.ForeignKey("course.id"))#外键字段的搭建对应的课程表
 
 # models.drop_all()#删除数据库

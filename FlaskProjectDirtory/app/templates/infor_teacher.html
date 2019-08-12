@@ -1,0 +1,55 @@
+{% extends 'blank.html' %}
+{% block title %}
+    老师信息页面
+{% endblock %}
+{% block style %}
+    <link href="/static/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+{% endblock %}
+{% block tit %}个人信息
+{% endblock %}
+{% block content %}
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>姓名:</th>
+                    </tr>
+                    <tr>
+                        <th>{{ teacher.name }}</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                  <tr>
+                      <th>性别:</th>
+                    </tr>
+                    <tr>
+                        {% if teacher.gender == 1 %}
+                            <th>男</th>
+                        {% else %}
+                            <th>女</th>
+                        {% endif %}
+                    </tr>
+                  <tr>
+                      <th>年龄:</th>
+                    </tr>
+                    <tr>
+                        <th>{{ teacher.age }}</th>
+                    </tr>
+                    <tr>
+                        <th>课程:</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ teacher.to_course_data.label }}
+                        </th>
+                    </tr>
+
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+{% endblock %}

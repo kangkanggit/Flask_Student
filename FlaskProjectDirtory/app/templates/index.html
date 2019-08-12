@@ -1,11 +1,24 @@
 {% extends 'blank.html' %}
 {% block title %}
-    学生管理系统
+    教学管理系统
 {% endblock %}
+
 
 {% block tit %}
-
+  {% if user.identity_id %}
+     学海无涯苦做舟
+  {% else %}
+    {% if request.cookies.id_id == '0' %}
+    欢迎学生:用户{{ request.cookies.username }}到来，请完善信息！！
+        <a class="btn btn-danger" href="/add_student/?user_id={{ request.cookies.user_id }}">完善信息</a>
+    {% elif request.cookies.id_id == '1' %}
+    欢迎老师:用户{{ request.cookies.username }}到来，请完善信息！！
+        <a class="btn btn-danger" href="/add_teacher/?user_id={{ request.cookies.user_id }}">完善信息</a>
+    {% else %}
+        欢迎领导视察！！！！！，你可以为所欲为！！！
+    {% endif %}
+  {% endif %}
 {% endblock %}
-
 {% block content %}
+
 {% endblock %}

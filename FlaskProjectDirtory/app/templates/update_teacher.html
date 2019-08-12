@@ -1,0 +1,69 @@
+{% extends 'blank.html' %}
+{% block title %}
+    老师修改页面
+{% endblock %}
+{% block tit %}
+老师修改
+{% endblock %}
+{% block content %}
+     <div class="card shadow mb-4">
+            <div class="card-body">
+              <div class="table-responsive">
+          <form method="post" class="user">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>姓名:</th>
+                    </tr>
+                     <tr>
+                      <th>
+                          <input type="text" class="form-control "  name="name" value="{{ teacher.name }}" >
+                      </th>
+                    </tr>
+                    <tr>
+                        <th>年龄:</th>
+                    </tr>
+                   <tr>
+                       <th>
+                       <input type="text" class="form-control " id="age" name="age" value="{{ teacher.age }}" >
+                       <input type="hidden" name="id" value="{{ teacher.id }}">
+                       </th>
+                    </tr>
+                    <br>
+                    <tr>
+                      <th>性别:</th>
+                    </tr>
+                     <tr>
+                      <th>
+                          {% if teacher.gender == 2 %}
+                          <input type="text" class="form-control "  name="gender" value="女" placeholder="女">
+                          {% else %}
+                          <input type="text" class="form-control "  name="gender" value="男" placeholder="男">
+                          {% endif %}
+                      </th>
+                    </tr>
+                    <br>
+                    <tr>
+                      <th>课程:</th>
+                    </tr>
+                     <tr>
+                      <th>
+                          <select class="form-control"  name="course" >
+                {% for course in course_list %}
+                        <option value="{{ course.id }}">{{ course.label }}</option>
+                {% endfor %}
+            </select>
+                      </th>
+                    </tr>
+                  <tr>
+                      <th>
+                          <input type="submit" class="form-control btn-outline-danger" value="提交">
+                      </th>
+                    </tr>
+                 </thead>
+               </table>
+            </form>
+              </div>
+            </div>
+          </div>
+{% endblock %}

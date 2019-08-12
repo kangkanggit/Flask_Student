@@ -25,11 +25,15 @@
                     <tr>
                       <th>{{ foo.name }}</th>
                       <th>{{ foo.age }}</th>
-                      <th>{{ foo.gender }}</th>
+                        {% if foo.gender == 1 %}
+                            <th>男</th>
+                        {% else %}
+                            <th>女</th>
+                        {% endif %}
                       <th style="text-align: center">
-                          <a class="btn btn-primary" href="#">调整</a>
+                          <a class="btn btn-primary" href="/update_student/?stuid={{ foo.id }}">调整</a>
                           &nbsp;&nbsp;
-                         <a class="btn btn-danger" href="#">开除</a>
+                         <a class="btn btn-danger" href="/delete_student/?stuid={{ foo.id }}">开除</a>
                       </th>
                     </tr>
                    {% endfor %}

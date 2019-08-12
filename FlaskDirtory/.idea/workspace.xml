@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad78c72d-7f8d-444e-a2e9-5362ec65c19d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../FlaskProjectDirtory/app/main/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../flask_blueprint_example/flaskScriptPrint/BluePrint1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../flask_blueprint_example/flaskScriptPrint/BluePrint2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../flask_blueprint_example/flaskScriptPrint/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FlaskProjectDirtory/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FlaskProjectDirtory/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FlaskProjectDirtory/app/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FlaskProjectDirtory/app/main/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FlaskProjectDirtory/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FlaskProjectDirtory/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FlaskProjectDirtory/app/templates/blank.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FlaskProjectDirtory/app/templates/blank.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FlaskProjectDirtory/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FlaskProjectDirtory/app/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flask_blueprint_example/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../flask_blueprint_example/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FlaskDirtory/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
+            <state relative-caret-position="432">
               <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="e#21#30#0" expanded="true" />
@@ -96,7 +97,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FlaskDirtory/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
+            <state relative-caret-position="6318">
               <caret line="242" column="20" selection-start-line="242" selection-start-column="20" selection-end-line="242" selection-end-column="20" />
               <folding>
                 <element signature="e#16#30#0" expanded="true" />
@@ -128,7 +129,7 @@
         <entry file="file://$PROJECT_DIR$/FlaskDirtory/config.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
-              <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -136,7 +137,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FlaskDirtory/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
+            <state relative-caret-position="540">
               <caret line="20" column="52" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="52" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
@@ -200,10 +201,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="340" />
-    <option name="y" value="95" />
+    <option name="x" value="258" />
+    <option name="y" value="50" />
     <option name="width" value="889" />
-    <option name="height" value="768" />
+    <option name="height" value="788" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -362,16 +363,17 @@
       <workItem from="1565311917955" duration="460000" />
       <workItem from="1565322235380" duration="289000" />
       <workItem from="1565329071707" duration="3136000" />
+      <workItem from="1565348384994" duration="613000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48519000" />
+    <option name="totallyTimeSpent" value="49132000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="340" y="95" width="889" height="768" extended-state="0" />
+    <frame x="258" y="50" width="889" height="788" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22557297" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23039807" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -527,16 +529,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FlaskDirtory/templates/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="85" column="47" selection-start-line="85" selection-start-column="47" selection-end-line="85" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FlaskDirtory/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
+        <state relative-caret-position="432">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="e#21#30#0" expanded="true" />
@@ -544,31 +539,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FlaskDirtory/templates/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2295">
+          <caret line="85" column="47" selection-start-line="85" selection-start-column="47" selection-end-line="85" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FlaskDirtory/templates/add_teacher.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FlaskDirtory/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
+        <state relative-caret-position="6318">
           <caret line="242" column="20" selection-start-line="242" selection-start-column="20" selection-end-line="242" selection-end-column="20" />
           <folding>
             <element signature="e#16#30#0" expanded="true" />
             <element signature="e#558#931#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlaskDirtory/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="20" column="52" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlaskDirtory/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -589,14 +581,24 @@
     <entry file="file://$PROJECT_DIR$/FlaskDirtory/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
-          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FlaskDirtory/templates/add_teacher.html">
+    <entry file="file://$PROJECT_DIR$/FlaskDirtory/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="41" />
+        <state relative-caret-position="540">
+          <caret line="20" column="52" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FlaskDirtory/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>

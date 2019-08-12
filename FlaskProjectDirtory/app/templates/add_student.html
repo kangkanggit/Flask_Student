@@ -1,40 +1,41 @@
 {% extends 'blank.html' %}
 {% block title %}
-    老师注册页面
+    学生注册页面
 {% endblock %}
 {% block tit %}
-    老师登记表
+    信息登记表
 {% endblock %}
 
 {% block content %}
     <div class="p-5">
         <form method="post" >
-            {{ teacher_form.csrf_token }}
+            {{ studentForm.csrf_token }}
         <div>
-            {{ teacher_form.name }}
+            {{studentForm.name }}
             <input type="hidden" name="id" value="{{ id }}">
             <br>
         </div>
         <div>
-            {{ teacher_form.age }}
+            {{ studentForm.age }}
             <br>
         </div>
         <div>
-            {{ teacher_form.gender }}
+            {{ studentForm.gender }}
             <br>
         </div>
-        <div>
-           <select class="form-control"  name="course" >
+            <div>
+            <select class="form-control "  name="course" >
                 {% for course in course_list %}
                         <option value="{{ course.id }}">{{ course.label }}</option>
                 {% endfor %}
             </select>
-            <br>
-        </div>
+                <br>
+            </div>
         <div>
             <input class="btn btn-danger  btn-block" type="submit" value="提交">
             <br>
         </div>
+
         </form>
     </div>
 {% endblock %}

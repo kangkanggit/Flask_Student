@@ -5,6 +5,8 @@ class BaseConfig(object):
     SQLALCHEMY_COMMIY_ON_TEARDOWN = True
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SECRET_KEY = 'kangkang123'#用来生成session_id和之后csrf_token
+    CACHE_TYPE = 'simple'#缓存
+
 
 class DebugConfig(BaseConfig):
     DEBUG = True
@@ -16,3 +18,4 @@ class OnlineConfig(BaseConfig):
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = \
         'sqlite:///' + os.path.join(BASE_DIR, 'Student_list.sqlite')
+

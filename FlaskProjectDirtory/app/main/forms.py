@@ -1,12 +1,14 @@
 import wtforms #定义字段
 from flask_wtf import FlaskForm #定义表单 由于版本原因，将FORM改为FlaskForm
 from wtforms import validators  #定义校验
+from app.models import *
 
 # forms当中禁止查看数据库，数据库查询被认为视图功能
 # from FlaskDirtory.models import Course
 #
 # course_list = [(c.id,c.label) for c in Course.query.all()]
 course_list = []
+# print(course_list)
 class TeacherForm(FlaskForm):
     """
     form字段的参数
@@ -56,3 +58,61 @@ class TeacherForm(FlaskForm):
             "class": "form-control",
         }
     )
+
+class StudentForm(FlaskForm):
+    name = wtforms.StringField("姓名",
+                               render_kw={
+                                   "class": "form-control",
+                                   "placeholder": "姓名"
+                               },
+                               validators=[
+                                   validators.DataRequired("姓名不可以为空")
+                               ]
+                               )
+    age = wtforms.StringField("年龄",
+                               render_kw={
+                                   "class": "form-control",
+                                   "placeholder": "年龄"
+                               },
+                               validators=[
+                                   validators.DataRequired("年龄不可以为空")
+                               ]
+                               )
+    gender = wtforms.SelectField(
+        "性别",
+        choices=[
+            ("1", "男"),
+            ("2", "女")
+        ],
+        render_kw={
+            "class": "form-control",
+        }
+    )
+    course = wtforms.SelectField(
+        "学科",
+        choices=course_list,
+        render_kw={
+            "class": "form-control",
+        }
+    )
+
+#课程表
+class CourseForm(FlaskForm):
+    label = wtforms.StringField("课程名字",
+                                render_kw={
+                                    "class": "form-control",
+                                    "placeholder": "课程名字"
+                                },
+                                validators=[
+                                    validators.DataRequired("课程不可以为空")
+                                ]
+    )
+    description = wtforms.StringField("课程描述",
+                                render_kw={
+                                    "class": "form-control",
+                                    "placeholder": "课程描述"
+                                },
+                                validators=[
+                                    validators.DataRequired("描述不可以为空")
+                                ]
+                                )

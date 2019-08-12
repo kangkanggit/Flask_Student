@@ -1,0 +1,93 @@
+{% extends 'blank.html' %}
+{% block title %}
+    学生信息页面
+{% endblock %}
+{% block style %}
+    <link href="/static/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+{% endblock %}
+{% block tit %}学生信息表
+<a  data-toggle="modal" data-target="#kang1" id="one" class="btn btn-outline-primary"  href="#">修改课程</a>
+{% endblock %}
+{% block content %}
+         <div class="modal fade" id="kang1" tabindex="-1" role="dialog" aria-labelledby="mykang" aria-hidden="false">
+        <div class="modal-dialog" >
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="mykang" style="color: #1c294e;margin-left: 200px">修改课程</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+              <form action="#" method="post">
+                    <div>
+                        <input  class="form-control" type="text" value="{{ student.name }}" name="name">
+                        <input type="hidden" name="id" value="{{ student.id }}">
+                        <br>
+                    </div>
+                    <div>
+                       <input class="form-control" type="button" value="{{ student.age }}" name="age">
+                        <br>
+                    </div>
+                        <div>
+                        <select class="form-control form-control-user"  name="course" multiple="multiple">
+                            {% for course in course_list %}
+                                    <option value="{{ course.id }}">{{ course.label }}</option>
+                            {% endfor %}
+                        </select>
+                            <br>
+                        </div>
+                    <div>
+                        <input class="btn btn-danger  btn-block" type="submit" value="提交">
+                        <br>
+                    </div>
+              </form>
+              </div>
+        </div>
+       </div>
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>姓名:</th>
+                    </tr>
+                    <tr>
+                        <th>{{ student.name }}</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                  <tr>
+                      <th>性别:</th>
+                    </tr>
+                    <tr>
+                        {% if student.gender == 1 %}
+                            <th>男</th>
+                        {% else %}
+                            <th>女</th>
+                        {% endif %}
+                    </tr>
+                  <tr>
+                      <th>年龄:</th>
+                    </tr>
+                    <tr>
+                        <th>{{ student.age }}</th>
+                    </tr>
+                    <tr>
+                        <th>课程:</th>
+                    </tr>
+                    <tr>
+                        <th>{% for i in a %}
+                            <a href="">{{ i.label }}</a>
+                            &nbsp;&nbsp;|&nbsp;&nbsp;
+                        {% endfor %}
+                        </th>
+                    </tr>
+
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+{% endblock %}

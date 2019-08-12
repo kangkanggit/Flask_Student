@@ -1,42 +1,61 @@
 {% extends 'blank.html' %}
 {% block title %}
-    老师信息页面
+    课程的展示页面
 {% endblock %}
 {% block style %}
     <link href="/static/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 {% endblock %}
-{% block tit %}老师信息表{% endblock %}
+{% block tit %}
+    <a  data-toggle="modal" data-target="#kang" id="one" class="btn btn-primary"  href="#">增加课程</a>
+{% endblock %}
 {% block content %}
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
+    <div class="modal fade" id="kang" tabindex="-1" role="dialog" aria-labelledby="mykang" aria-hidden="false">
+        <div class="modal-dialog" >
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="mykang" style="color: #1c294e;margin-left: 200px">增加课程</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+              <form action="#" method="post">
+                   {{ course_form.csrf_token }}
+                <div>
+                    {{ course_form.label }}
+                <br>
+                </div>
+                <div>
+                     {{ course_form.description }}
+                    <br>
+                </div>
+                <div class="modal-footer">
+                  <input class="btn btn-primary form-control" type="submit"  value="提交">
+                </div>
+              </form>
+              </div>
+        </div>
+  </div>
+     <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>姓名:</th>
-                      <th>年龄:</th>
-                      <th>性别:</th>
-                      <th>学科:</th>
+                      <th>课程名:</th>
+                      <th>课程的描述:</th>
                       <th>操作</th>
                     </tr>
                   </thead>
                   <tfoot>
-                    {% for foo in teachers %}
+                    {% for foo in course_listed %}
                     <tr>
-                      <th>{{ foo.name }}</th>
-                      <th>{{ foo.age }}</th>
-                      {% if foo.gender == 1 %}
-                            <th>男</th>
-                        {% else %}
-                            <th>女</th>
-                        {% endif %}
-                      <th>{{ foo.to_course_data.label }}</th>
+                      <th>{{ foo.label }}</th>
+                      <th>{{ foo.description }}</th>
                       <input type="hidden" class="two" id="two" value="{{ foo.id }}">
                       <th style="text-align: center">
-                          <a  class="btn btn-primary"   href="/update_teacher/?teacher_id={{ foo.id }}">调整</a>
+                          <a class="btn btn-primary" href="/update_course/?course_id={{ foo.id }}">修改</a>
                           &nbsp;&nbsp;
-                         <a class="btn btn-danger" href="/delete_teacher/?teacher_id={{ foo.id }}">开除</a>
+                         <a class="btn btn-danger" href="/delete_course/?course_id={{ foo.id }}">删除</a>
                       </th>
                     </tr>
                    {% endfor %}
